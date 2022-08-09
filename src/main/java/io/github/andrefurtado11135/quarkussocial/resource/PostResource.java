@@ -5,7 +5,9 @@ import io.github.andrefurtado11135.quarkussocial.service.PostService;
 import org.jboss.resteasy.reactive.RestPath;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.validation.Validator;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -13,33 +15,23 @@ import javax.ws.rs.core.Response;
 @Path("users/{userId}/posts")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class PostResource implements ApplicationResource{
+public class PostResource{
 
     private PostService postService;
 
-    private Validator validator;
-
     @Inject
-    public PostResource(PostService postService, Validator validator){
+    public PostResource(PostService postService){
         this.postService = postService;
-        this.validator = validator;
-    }
-
-    @Override
-    public Validator getValidator() {
-        return this.validator;
     }
 
     @POST
-    public Response savePost(@RestPath("userId") Long id, CreatePostRequest request){
-        validateRequest(request);
+    public Response savePost(@NotNull @RestPath("userId") Long id, @Valid CreatePostRequest request){
         postService.savePost(id, request);
-        return Response.status(201).build();
+        return Response.status(Response.Status.CREATED).build();
     }
 
     @GET
-    public Response listPosts(@RestPath("userId") Long id){
-
-        return Response.ok(postService.getPosts(id)).build();
+    public Response listPosts(@NotNull @RestPath("userId") Long id, @NotNull @HeaderParam("followerId") Long followerId){
+        return Response.ok(postService.getPosts(id, followerId)).build();
     }
 }

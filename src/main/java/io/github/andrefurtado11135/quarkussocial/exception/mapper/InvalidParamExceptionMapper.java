@@ -5,7 +5,9 @@ import io.github.andrefurtado11135.quarkussocial.vo.ApplicationErrorVO;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
 
+@Provider
 public class InvalidParamExceptionMapper implements ExceptionMapper<InvalidParamException> {
 
     @Override

@@ -29,7 +29,6 @@ public class FollowerResource{
 
     @PUT
     public Response followUser(@NotNull @RestPath("userId") Long id, @Valid FollowerRequest request){
-        //validateRequest(request);
         followerService.followUser(id, request);
         return Response.status(Response.Status.NO_CONTENT).build();
     }

@@ -3,11 +3,12 @@ package io.github.andrefurtado11135.quarkussocial.vo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
-public class ApplicationErrorVO<T> {
+public class ApplicationErrorVO {
 
-    public T errors;
+    public List<ErrorVO> errors;
 
     public LocalDateTime timestamp;
 

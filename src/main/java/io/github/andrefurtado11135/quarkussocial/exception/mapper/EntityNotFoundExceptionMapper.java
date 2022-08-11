@@ -2,6 +2,7 @@ package io.github.andrefurtado11135.quarkussocial.exception.mapper;
 
 import io.github.andrefurtado11135.quarkussocial.exception.EntityNotFoundException;
 import io.github.andrefurtado11135.quarkussocial.vo.ApplicationErrorVO;
+import io.github.andrefurtado11135.quarkussocial.vo.ErrorVO;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -12,8 +13,8 @@ public class EntityNotFoundExceptionMapper implements ExceptionMapper<EntityNotF
 
     @Override
     public Response toResponse(EntityNotFoundException exception) {
-        ApplicationErrorVO<String> errorVO = new ApplicationErrorVO<>();
-        errorVO.setErrors(exception.getMessage());
+        ApplicationErrorVO errorVO = new ApplicationErrorVO();
+        errorVO.setErrors(ErrorVO.mapErrors(exception));
         return Response.status(Response.Status.NOT_FOUND.getStatusCode()).entity(errorVO).build();
     }
 }

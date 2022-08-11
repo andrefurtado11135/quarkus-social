@@ -2,10 +2,17 @@ package io.github.andrefurtado11135.quarkussocial.vo;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
-public class ApplicationErrorVO<T> {
+public class ApplicationErrorVO {
 
-    public String status;
+    public List<ErrorVO> errors;
 
-    public T errors;
+    public LocalDateTime timestamp;
+
+    public ApplicationErrorVO(){
+        this.timestamp = LocalDateTime.now();
+    }
 }

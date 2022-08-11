@@ -75,6 +75,23 @@
       <artifactId>quarkus-jdbc-mariadb</artifactId>
     </dependency>
 
+    <!-- Flyway specific dependencies -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-flyway</artifactId>
+    </dependency>
+
+    <!-- Flyway MariaDB/MySQL specific dependencies -->
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-mysql</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+
   </dependencies>
   <build>
     <plugins>

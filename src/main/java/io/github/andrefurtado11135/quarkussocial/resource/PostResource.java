@@ -44,6 +44,7 @@ public class PostResource{
             value = {
                     @APIResponse(responseCode = "200", description = "Posts listed"), @APIResponse(responseCode = "404", description = "User not found"),
                     @APIResponse(responseCode = "400", description = "Follower Id invalid"),
+                    @APIResponse(responseCode = "403", description = "You are not allowed to see this user's posts"),
                     @APIResponse(responseCode = "500", description = "Internal Server Error")})
     @GET
     public Response listPosts(@NotNull @RestPath("userId") Long id, @NotNull @HeaderParam("followerId") Long followerId){

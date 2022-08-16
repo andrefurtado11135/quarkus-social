@@ -34,6 +34,7 @@ public class FollowerResource{
             value = {
                     @APIResponse(responseCode = "204", description = "Follow successful"),
                     @APIResponse(responseCode = "400", description = "Request invalid"),
+                    @APIResponse(responseCode = "409", description = "FollowerId cannot be the same as UserId"),
                     @APIResponse(responseCode = "404", description = "User not found"),
                     @APIResponse(responseCode = "500", description = "Internal Server Error")})
     @PUT
@@ -64,6 +65,4 @@ public class FollowerResource{
         followerService.unfollowUser(id, followerId);
         return Response.noContent().build();
     }
-
-
 }

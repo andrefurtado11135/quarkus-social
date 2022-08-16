@@ -3,6 +3,7 @@ package io.github.andrefurtado11135.quarkussocial.resource;
 import io.github.andrefurtado11135.quarkussocial.exception.EntityNotFoundException;
 import io.github.andrefurtado11135.quarkussocial.service.UserService;
 import io.github.andrefurtado11135.quarkussocial.utils.TestMockUtils;
+import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.mockito.InjectMock;
 import io.restassured.http.ContentType;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @QuarkusTest
+@TestHTTPEndpoint(UserResource.class)
 class UserResourceTest {
 
     @InjectMock
@@ -33,7 +35,7 @@ class UserResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(TestMockUtils.createUserRequest())
-                .when().post("/users")
+                .when().post()
                 .then().extract().response();
 
         assertEquals(201, response.getStatusCode());
@@ -47,7 +49,7 @@ class UserResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(request)
-                .when().post("/users")
+                .when().post()
                 .then().extract().response();
 
         assertEquals(400, response.getStatusCode());
@@ -60,7 +62,7 @@ class UserResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(TestMockUtils.createUserRequest())
-                .when().get("/users")
+                .when().get()
                 .then().extract().response();
         assertEquals(200, response.getStatusCode());
     }
@@ -70,7 +72,7 @@ class UserResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(TestMockUtils.createUserRequest())
-                .when().put("/users/2")
+                .when().put("/2")
                 .then().extract().response();
         assertEquals(204, response.getStatusCode());
     }
@@ -83,7 +85,7 @@ class UserResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(request)
-                .when().put("/users/2")
+                .when().put("/2")
                 .then().extract().response();
         assertEquals(400, response.getStatusCode());
     }
@@ -95,7 +97,7 @@ class UserResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(TestMockUtils.createUserRequest())
-                .when().put("/users/2")
+                .when().put("/2")
                 .then().extract().response();
         assertEquals(404, response.getStatusCode());
     }
@@ -104,7 +106,7 @@ class UserResourceTest {
     void deleteUser() {
         var response = given()
                 .contentType(ContentType.JSON)
-                .when().delete("/users/2")
+                .when().delete("/2")
                 .then().extract().response();
         assertEquals(204, response.getStatusCode());
     }
@@ -115,8 +117,8 @@ class UserResourceTest {
 
         var response = given()
                 .contentType(ContentType.JSON)
-                .when().delete("/users/2")
+                .when().delete("/2")
                 .then().extract().response();
-        assertEquals(204, response.getStatusCode());
+        assertEquals(404, response.getStatusCode());
     }
 }

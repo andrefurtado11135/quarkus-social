@@ -6,6 +6,7 @@ import io.github.andrefurtado11135.quarkussocial.exception.ForbiddenRequestExcep
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidParamException;
 import io.github.andrefurtado11135.quarkussocial.service.PostService;
 import io.github.andrefurtado11135.quarkussocial.utils.TestMockUtils;
+import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.mockito.InjectMock;
 import io.restassured.http.ContentType;
@@ -22,20 +23,22 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @QuarkusTest
+@TestHTTPEndpoint(PostResource.class)
 public class PostResourceTest {
 
     @InjectMock
     private PostService postService;
 
     @Inject
-    private PostResourceTest postResource;
+    private PostResource postResource;
 
     @Test
     void createPost() {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(TestMockUtils.createPostRequest())
-                .when().post("/posts/2")
+                .pathParams("userId", 2)
+                .when().post()
                 .then().extract().response();
 
         assertEquals(201, response.getStatusCode());
@@ -48,7 +51,8 @@ public class PostResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(TestMockUtils.createPostRequest())
-                .when().post("/posts/2")
+                .pathParams("userId", 2)
+                .when().post()
                 .then().extract().response();
 
         assertEquals(404, response.getStatusCode());
@@ -62,7 +66,8 @@ public class PostResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(request)
-                .when().post("/posts/2")
+                .pathParams("userId", 2)
+                .when().post()
                 .then().extract().response();
 
         assertEquals(400, response.getStatusCode());
@@ -77,7 +82,8 @@ public class PostResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .header(header)
-                .when().get("/posts/2")
+                .pathParams("userId", 2)
+                .when().get()
                 .then().extract().response();
 
         assertEquals(200, response.getStatusCode());
@@ -92,7 +98,8 @@ public class PostResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .header(header)
-                .when().get("/posts/2")
+                .pathParams("userId", 2)
+                .when().get()
                 .then().extract().response();
 
         assertEquals(404, response.getStatusCode());
@@ -107,7 +114,8 @@ public class PostResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .header(header)
-                .when().get("/posts/2")
+                .pathParams("userId", 2)
+                .when().get()
                 .then().extract().response();
 
         assertEquals(400, response.getStatusCode());
@@ -122,7 +130,8 @@ public class PostResourceTest {
         var response = given()
                 .contentType(ContentType.JSON)
                 .header(header)
-                .when().get("/posts/2")
+                .pathParams("userId", 2)
+                .when().get()
                 .then().extract().response();
 
         assertEquals(403, response.getStatusCode());

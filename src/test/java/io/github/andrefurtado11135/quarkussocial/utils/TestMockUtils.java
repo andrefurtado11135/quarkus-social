@@ -2,11 +2,14 @@ package io.github.andrefurtado11135.quarkussocial.utils;
 
 import io.github.andrefurtado11135.quarkussocial.dto.CreatePostRequest;
 import io.github.andrefurtado11135.quarkussocial.dto.CreateUserRequest;
-import io.github.andrefurtado11135.quarkussocial.entity.Post;
+import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
 import io.github.andrefurtado11135.quarkussocial.entity.User;
+import io.github.andrefurtado11135.quarkussocial.vo.FollowerResponse;
+import io.github.andrefurtado11135.quarkussocial.vo.FollowersPerUserResponseVO;
 import io.github.andrefurtado11135.quarkussocial.vo.PostResponseVO;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class TestMockUtils {
 
@@ -35,5 +38,25 @@ public class TestMockUtils {
         postResponseVO.setText("TESTE123");
         postResponseVO.setDateTime(LocalDateTime.now());
         return postResponseVO;
+    }
+
+    public static FollowerRequest followerRequest(){
+        FollowerRequest followerRequest = new FollowerRequest();
+        followerRequest.setFollowerId(3L);
+        return followerRequest;
+    }
+
+    public static FollowersPerUserResponseVO mockedFollower(){
+        FollowersPerUserResponseVO followers = new FollowersPerUserResponseVO();
+        followers.setFollowersCount(1);
+        followers.setContent(Arrays.asList(mockedFollowerResponse()));
+        return followers;
+    }
+
+    public static FollowerResponse mockedFollowerResponse(){
+        FollowerResponse response = new FollowerResponse();
+        response.setId(1L);
+        response.setName("TESTE456");
+        return response;
     }
 }

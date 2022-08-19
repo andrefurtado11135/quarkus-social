@@ -1,11 +1,12 @@
 package io.github.andrefurtado11135.quarkussocial.service;
 
-import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
-import io.github.andrefurtado11135.quarkussocial.entity.Follower;
-import io.github.andrefurtado11135.quarkussocial.entity.User;
+import io.github.andrefurtado11135.quarkussocial.model.dto.FollowerRequest;
+import io.github.andrefurtado11135.quarkussocial.model.entity.Follower;
+import io.github.andrefurtado11135.quarkussocial.model.entity.User;
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidFollowerException;
 import io.github.andrefurtado11135.quarkussocial.repository.FollowerRepository;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowerResponse;
+import io.github.andrefurtado11135.quarkussocial.model.vo.FollowerResponse;
+import io.github.andrefurtado11135.quarkussocial.model.vo.FollowersPerUserResponseVO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -43,9 +44,13 @@ public class FollowerService {
         }
     }
 
-    public List<FollowerResponse> getFollowersByUser(Long userId){
+    public FollowersPerUserResponseVO getFollowersByUser(Long userId){
         userService.findUserById(userId);
-        return followerRepository.findFollowersByUser(userId).stream().map(FollowerResponse::new).collect(Collectors.toList());
+        List<FollowerResponse> followers = followerRepository.findFollowersByUser(userId).stream().map(FollowerResponse::new).collect(Collectors.toList());
+        FollowersPerUserResponseVO response = new FollowersPerUserResponseVO();
+        response.setFollowersCount(followers.size());
+        response.setContent(followers);
+        return response;
     }
 
     @Transactional

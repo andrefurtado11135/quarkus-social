@@ -1,9 +1,7 @@
 package io.github.andrefurtado11135.quarkussocial.resource;
 
-import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.FollowerRequest;
 import io.github.andrefurtado11135.quarkussocial.service.FollowerService;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowerResponse;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowersPerUserResponseVO;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
@@ -17,7 +15,6 @@ import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("users/{userId}/followers")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -37,6 +34,7 @@ public class FollowerResource{
             value = {
                     @APIResponse(responseCode = "204", description = "Follow successful"),
                     @APIResponse(responseCode = "400", description = "Request invalid"),
+                    @APIResponse(responseCode = "409", description = "FollowerId cannot be the same as UserId"),
                     @APIResponse(responseCode = "404", description = "User not found"),
                     @APIResponse(responseCode = "500", description = "Internal Server Error")})
     @PUT
@@ -53,11 +51,7 @@ public class FollowerResource{
                     @APIResponse(responseCode = "500", description = "Internal Server Error")})
     @GET
     public Response listFollowers(@NotNull @RestPath("userId") Long id){
-        List<FollowerResponse> followers = followerService.getFollowersByUser(id);
-        FollowersPerUserResponseVO response = new FollowersPerUserResponseVO();
-        response.setFollowersCount(followers.size());
-        response.setContent(followers);
-        return Response.ok(response).build();
+        return Response.ok(followerService.getFollowersByUser(id)).build();
     }
 
     @Operation(summary = "Unfollow user")
@@ -71,6 +65,4 @@ public class FollowerResource{
         followerService.unfollowUser(id, followerId);
         return Response.noContent().build();
     }
-
-
 }

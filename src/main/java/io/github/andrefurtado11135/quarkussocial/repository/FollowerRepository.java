@@ -1,7 +1,7 @@
 package io.github.andrefurtado11135.quarkussocial.repository;
 
-import io.github.andrefurtado11135.quarkussocial.entity.Follower;
-import io.github.andrefurtado11135.quarkussocial.entity.User;
+import io.github.andrefurtado11135.quarkussocial.model.entity.Follower;
+import io.github.andrefurtado11135.quarkussocial.model.entity.User;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;

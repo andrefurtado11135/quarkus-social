@@ -1,6 +1,6 @@
 package io.github.andrefurtado11135.quarkussocial.resource;
 
-import io.github.andrefurtado11135.quarkussocial.dto.CreateUserRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreateUserRequest;
 import io.github.andrefurtado11135.quarkussocial.service.UserService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
@@ -51,20 +51,20 @@ public class UserResource{
     @Operation(summary = "Delete an user")
     @APIResponses(
             value = {
-                    @APIResponse(responseCode = "200", description = "User deleted"),
+                    @APIResponse(responseCode = "204", description = "User deleted"),
                     @APIResponse(responseCode = "404", description = "User not found"),
                     @APIResponse(responseCode = "500", description = "Internal Server Error")})
     @DELETE
     @Path("{id}")
     public Response deleteUser(@NotNull @RestPath Long id){
         userService.deleteUser(id);
-        return Response.ok().build();
+        return Response.noContent().build();
     }
 
     @Operation(summary = "Update an user")
     @APIResponses(
             value = {
-                    @APIResponse(responseCode = "200", description = "User updated"),
+                    @APIResponse(responseCode = "204", description = "User updated"),
                     @APIResponse(responseCode = "400", description = "Request body invalid"),
                     @APIResponse(responseCode = "404", description = "User not found"),
                     @APIResponse(responseCode = "500", description = "Internal Server Error")})
@@ -72,6 +72,6 @@ public class UserResource{
     @Path("{id}")
     public Response updateUser(@NotNull @RestPath Long id, @Valid CreateUserRequest createUserRequest){
         userService.updateUser(id, createUserRequest);
-        return Response.ok().build();
+        return Response.noContent().build();
     }
 }

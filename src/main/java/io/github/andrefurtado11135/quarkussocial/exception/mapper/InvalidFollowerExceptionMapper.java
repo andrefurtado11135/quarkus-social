@@ -1,8 +1,8 @@
 package io.github.andrefurtado11135.quarkussocial.exception.mapper;
 
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidFollowerException;
-import io.github.andrefurtado11135.quarkussocial.vo.ApplicationErrorVO;
-import io.github.andrefurtado11135.quarkussocial.vo.ErrorVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.ApplicationErrorVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.ErrorVO;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;

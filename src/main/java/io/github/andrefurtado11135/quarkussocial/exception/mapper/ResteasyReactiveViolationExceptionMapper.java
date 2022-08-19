@@ -1,7 +1,7 @@
 package io.github.andrefurtado11135.quarkussocial.exception.mapper;
 
-import io.github.andrefurtado11135.quarkussocial.vo.ApplicationErrorVO;
-import io.github.andrefurtado11135.quarkussocial.vo.ErrorVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.ApplicationErrorVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.ErrorVO;
 import io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveViolationException;
 
 import javax.ws.rs.core.Response;

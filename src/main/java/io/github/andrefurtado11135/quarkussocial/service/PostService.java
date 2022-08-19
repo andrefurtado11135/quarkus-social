@@ -1,13 +1,13 @@
 package io.github.andrefurtado11135.quarkussocial.service;
 
-import io.github.andrefurtado11135.quarkussocial.dto.CreatePostRequest;
-import io.github.andrefurtado11135.quarkussocial.entity.Post;
-import io.github.andrefurtado11135.quarkussocial.entity.User;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreatePostRequest;
+import io.github.andrefurtado11135.quarkussocial.model.entity.Post;
+import io.github.andrefurtado11135.quarkussocial.model.entity.User;
 import io.github.andrefurtado11135.quarkussocial.exception.ForbiddenRequestException;
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidParamException;
 import io.github.andrefurtado11135.quarkussocial.repository.FollowerRepository;
 import io.github.andrefurtado11135.quarkussocial.repository.PostRepository;
-import io.github.andrefurtado11135.quarkussocial.vo.PostResponseVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.PostResponseVO;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.panache.common.Sort;
 

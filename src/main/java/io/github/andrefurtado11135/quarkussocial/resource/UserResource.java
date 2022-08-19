@@ -1,6 +1,6 @@
 package io.github.andrefurtado11135.quarkussocial.resource;
 
-import io.github.andrefurtado11135.quarkussocial.dto.CreateUserRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreateUserRequest;
 import io.github.andrefurtado11135.quarkussocial.service.UserService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;

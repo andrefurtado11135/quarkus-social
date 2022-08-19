@@ -1,6 +1,6 @@
 package io.github.andrefurtado11135.quarkussocial.resource;
 
-import io.github.andrefurtado11135.quarkussocial.dto.CreatePostRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreatePostRequest;
 import io.github.andrefurtado11135.quarkussocial.exception.EntityNotFoundException;
 import io.github.andrefurtado11135.quarkussocial.exception.ForbiddenRequestException;
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidParamException;

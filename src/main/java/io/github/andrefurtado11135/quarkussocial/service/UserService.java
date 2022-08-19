@@ -1,7 +1,7 @@
 package io.github.andrefurtado11135.quarkussocial.service;
 
-import io.github.andrefurtado11135.quarkussocial.dto.CreateUserRequest;
-import io.github.andrefurtado11135.quarkussocial.entity.User;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreateUserRequest;
+import io.github.andrefurtado11135.quarkussocial.model.entity.User;
 import io.github.andrefurtado11135.quarkussocial.exception.EntityNotFoundException;
 import io.github.andrefurtado11135.quarkussocial.repository.UserRepository;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;

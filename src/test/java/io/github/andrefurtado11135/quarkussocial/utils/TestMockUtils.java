@@ -1,12 +1,12 @@
 package io.github.andrefurtado11135.quarkussocial.utils;
 
-import io.github.andrefurtado11135.quarkussocial.dto.CreatePostRequest;
-import io.github.andrefurtado11135.quarkussocial.dto.CreateUserRequest;
-import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
-import io.github.andrefurtado11135.quarkussocial.entity.User;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowerResponse;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowersPerUserResponseVO;
-import io.github.andrefurtado11135.quarkussocial.vo.PostResponseVO;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreatePostRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.CreateUserRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.FollowerRequest;
+import io.github.andrefurtado11135.quarkussocial.model.entity.User;
+import io.github.andrefurtado11135.quarkussocial.model.vo.FollowerResponse;
+import io.github.andrefurtado11135.quarkussocial.model.vo.FollowersPerUserResponseVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.PostResponseVO;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;

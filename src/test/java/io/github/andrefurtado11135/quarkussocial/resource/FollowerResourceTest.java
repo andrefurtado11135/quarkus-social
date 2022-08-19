@@ -1,6 +1,6 @@
 package io.github.andrefurtado11135.quarkussocial.resource;
 
-import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.FollowerRequest;
 import io.github.andrefurtado11135.quarkussocial.exception.EntityNotFoundException;
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidFollowerException;
 import io.github.andrefurtado11135.quarkussocial.service.FollowerService;

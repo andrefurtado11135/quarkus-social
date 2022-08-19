@@ -1,4 +1,4 @@
-package io.github.andrefurtado11135.quarkussocial.vo;
+package io.github.andrefurtado11135.quarkussocial.model.vo;
 
 import lombok.Data;
 

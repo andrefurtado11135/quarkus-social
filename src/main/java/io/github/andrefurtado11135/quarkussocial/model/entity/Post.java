@@ -1,4 +1,4 @@
-package io.github.andrefurtado11135.quarkussocial.entity;
+package io.github.andrefurtado11135.quarkussocial.model.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

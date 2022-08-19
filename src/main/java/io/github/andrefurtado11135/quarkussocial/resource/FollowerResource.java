@@ -1,6 +1,6 @@
 package io.github.andrefurtado11135.quarkussocial.resource;
 
-import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
+import io.github.andrefurtado11135.quarkussocial.model.dto.FollowerRequest;
 import io.github.andrefurtado11135.quarkussocial.service.FollowerService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;

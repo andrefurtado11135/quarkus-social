@@ -1,6 +1,6 @@
-package io.github.andrefurtado11135.quarkussocial.vo;
+package io.github.andrefurtado11135.quarkussocial.model.vo;
 
-import io.github.andrefurtado11135.quarkussocial.entity.Post;
+import io.github.andrefurtado11135.quarkussocial.model.entity.Post;
 import lombok.Data;
 
 import java.time.LocalDateTime;

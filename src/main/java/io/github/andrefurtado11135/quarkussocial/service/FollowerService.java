@@ -1,12 +1,12 @@
 package io.github.andrefurtado11135.quarkussocial.service;
 
-import io.github.andrefurtado11135.quarkussocial.dto.FollowerRequest;
-import io.github.andrefurtado11135.quarkussocial.entity.Follower;
-import io.github.andrefurtado11135.quarkussocial.entity.User;
+import io.github.andrefurtado11135.quarkussocial.model.dto.FollowerRequest;
+import io.github.andrefurtado11135.quarkussocial.model.entity.Follower;
+import io.github.andrefurtado11135.quarkussocial.model.entity.User;
 import io.github.andrefurtado11135.quarkussocial.exception.InvalidFollowerException;
 import io.github.andrefurtado11135.quarkussocial.repository.FollowerRepository;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowerResponse;
-import io.github.andrefurtado11135.quarkussocial.vo.FollowersPerUserResponseVO;
+import io.github.andrefurtado11135.quarkussocial.model.vo.FollowerResponse;
+import io.github.andrefurtado11135.quarkussocial.model.vo.FollowersPerUserResponseVO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

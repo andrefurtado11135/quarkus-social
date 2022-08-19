@@ -1,4 +1,4 @@
-package io.github.andrefurtado11135.quarkussocial.dto;
+package io.github.andrefurtado11135.quarkussocial.model.dto;
 
 import lombok.Data;
 
